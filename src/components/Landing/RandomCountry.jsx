@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function RandomCountry({ data, params }) {
-    
+
     return (
-        <Link href={''} className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
+        <Link href={`/country/${data.name.common.toLowerCase()}/${data.ccn3}`} className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
             <Image
                 alt={data.name.common}
                 width={200}

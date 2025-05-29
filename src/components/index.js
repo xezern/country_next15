@@ -1,7 +1,3 @@
-import Footer from './Footer'
-import Header from './Header'
-
-export {
-    Header,
-    Footer
-}
+export * from './Footer'
+export * from './Header'
+export * from './NotFound'

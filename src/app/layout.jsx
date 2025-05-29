@@ -1,5 +1,6 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
+import { ScrollTopJsx } from "@/components/ScrollTopJsx";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <ScrollTopJsx />
       </body>
     </html>
   );

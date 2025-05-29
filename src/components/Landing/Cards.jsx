@@ -2,38 +2,18 @@
 import { useQueryParams } from "@/hooks/use-query-params";
 import { useScrollTopByElement } from "@/utils";
 import { Pagination } from "antd";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
+import { Card } from "./Card";
 
 export function Cards({ data }) {
     const count = 12
-    const [page, setPage] = useState(1)
-    const { addQuery } = useQueryParams()
+    const [page, setPage] = useState(1);
+    const { addQuery } = useQueryParams();
+
     return (
         <>
             <div id="content" className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {
-                    data.slice(count * page - 12, count * page).map((item, i) => {
-                        return (
-                            <Link key={item.ccn3 || i} href={''} className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
-                                <Image
-                                    alt={item.name.common}
-                                    role="presentation"
-                                    className="object-cover w-full rounded h-44 dark:bg-gray-500"
-                                    src={item.flags.svg}
-                                    width={200}
-                                    height={200}
-                                />
-                                <div className="p-6 space-y-2">
-                                    <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">{item.name.common}, <span className="text-2xl font-normal"> {item.capital} </span></h3>
-                                    <span className="text-xs dark:text-gray-600"> Population: {item.population?.toLocaleString('en-US')}  </span>
-                                    <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                                </div>
-                            </Link>
-                        )
-                    })
-                }
+                {data.slice(count * page - 12, count * page).map((item, i) => <Card key={item.ccn3 || i} item={item} />)}
             </div>
             <Pagination
                 align="center"
@@ -45,8 +25,6 @@ export function Cards({ data }) {
                     addQuery('page', page)
                 }}
             />
-
         </>
-
     )
 }

@@ -1,6 +1,6 @@
 export function useScrollTop(top = 0, smooth = true) {
     return scrollTo({
-        top,
+        top: top,
         behavior: smooth ? 'smooth' : "auto"
     })
 }
